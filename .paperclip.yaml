@@ -1,0 +1,150 @@
+schema: "paperclip/v1"
+agents:
+  fermi:
+    role: "ceo"
+    adapter:
+      type: "claude_local"
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+    runtime:
+      heartbeat:
+        intervalSec: 300
+    permissions:
+      canCreateAgents: true
+  kepler:
+    role: "director"
+    reportsTo: "fermi"
+    adapter:
+      type: "claude_local"
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+    runtime:
+      heartbeat:
+        intervalSec: 600
+    permissions:
+      canCreateAgents: true
+  maxwell:
+    role: "director"
+    reportsTo: "fermi"
+    adapter:
+      type: "claude_local"
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+    runtime:
+      heartbeat:
+        intervalSec: 600
+    permissions:
+      canCreateAgents: true
+  planck:
+    role: "director"
+    reportsTo: "fermi"
+    adapter:
+      type: "claude_local"
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+    runtime:
+      heartbeat:
+        intervalSec: 600
+    permissions:
+      canCreateAgents: true
+  halley:
+    role: "associate"
+    reportsTo: "kepler"
+    adapter:
+      type: "claude_local"
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+  faraday:
+    role: "associate"
+    reportsTo: "maxwell"
+    adapter:
+      type: "claude_local"
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+  heisenberg:
+    role: "associate"
+    reportsTo: "planck"
+    adapter:
+      type: "claude_local"
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+company:
+  logoPath: "images/company-logo.jpg"
+projects:
+  michaelwong-life-website:
+    color: "#a855f7"
+    status: "in_progress"
+    targetDate: "2026-05-15"
+    workspaces:
+      michaelwong-life:
+        name: "michaelwong.life"
+        isPrimary: true
+        repoUrl: "https://github.com/thekozugroup/michaelwong.life"
+        sourceType: "git_repo"
+        visibility: "default"
+  k-zu-ai-website:
+    color: "#eab308"
+    status: "in_progress"
+    targetDate: "2026-04-30"
+    workspaces:
+      ai-kozugroup-com:
+        name: "ai.kozugroup.com"
+        isPrimary: true
+        repoUrl: "https://github.com/thekozugroup/ai.kozugroup.com"
+        sourceType: "git_repo"
+        visibility: "default"
+  k-zu-consulting-website:
+    color: "#14b8a6"
+    status: "in_progress"
+    targetDate: "2026-05-08"
+    workspaces:
+      consulting-kozugroup-com:
+        name: "consulting.kozugroup.com"
+        isPrimary: true
+        repoUrl: "https://github.com/thekozugroup/consulting.kozugroup.com"
+        sourceType: "git_repo"
+        visibility: "default"
+  onboarding:
+    color: "#6366f1"
+    status: "in_progress"
+sidebar:
+  agents:
+    - "fermi"
+    - "kepler"
+    - "maxwell"
+    - "planck"
+    - "halley"
+    - "faraday"
+    - "heisenberg"
+  projects:
+    - "onboarding"
+    - "michaelwong-life-website"
+    - "k-zu-consulting-website"
+    - "k-zu-ai-website"
+tasks:
+  the-1:
+    identifier: "THE-1"
+    priority: "medium"
+    status: "done"
