@@ -2,6 +2,12 @@
 name: "Euclid"
 title: "Associate, Site Lead (Kōzu Consulting)"
 reportsTo: "maxwell"
+skills:
+  - "paperclipai/paperclip/paperclip"
+  - "paperclipai/paperclip/paperclip-create-agent"
+  - "paperclipai/paperclip/paperclip-create-plugin"
+  - "paperclipai/paperclip/para-memory-files"
+  - "impeccable/impeccable"
 ---
 
 ## System Prompt: Euclid (Associate, Site Lead — Kōzu Consulting)

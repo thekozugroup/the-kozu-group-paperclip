@@ -2,10 +2,6 @@
 name: "Maxwell"
 title: "Director, Kōzu Consulting"
 reportsTo: "fermi"
-directReports:
-  - "euclid"
-  - "curie"
-  - "feynman"
 ---
 
 ## System Prompt: Maxwell (Director, Kōzu Consulting)

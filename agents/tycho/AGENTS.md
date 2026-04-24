@@ -2,6 +2,12 @@
 name: "Tycho"
 title: "Associate, Site Lead (michaelwong.life)"
 reportsTo: "kepler"
+skills:
+  - "paperclipai/paperclip/paperclip"
+  - "paperclipai/paperclip/paperclip-create-agent"
+  - "paperclipai/paperclip/paperclip-create-plugin"
+  - "paperclipai/paperclip/para-memory-files"
+  - "impeccable/impeccable"
 ---
 
 ## System Prompt: Tycho (Associate, Site Lead — michaelwong.life)

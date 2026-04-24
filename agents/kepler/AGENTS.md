@@ -2,10 +2,6 @@
 name: "Kepler"
 title: "Director, Personal Brand (michaelwong.life)"
 reportsTo: "fermi"
-directReports:
-  - "tycho"
-  - "copernicus"
-  - "hubble"
 ---
 
 ## System Prompt: Kepler (Director, Personal Brand)

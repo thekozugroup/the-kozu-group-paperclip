@@ -1,54 +1,96 @@
 schema: "paperclip/v1"
 agents:
-  # ─── Executive layer ────────────────────────────────────────────
+  bohr:
+    role: "associate"
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.5"
+        search: true
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+  copernicus:
+    role: "associate"
+    adapter:
+      config:
+        model: "opencode/minimax-m2.5-free"
+        variant: "high"
+      type: "opencode_local"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+  curie:
+    role: "associate"
+    adapter:
+      config:
+        model: "claude-haiku-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+  euclid:
+    role: "associate"
+    adapter:
+      config:
+        chrome: true
+        model: "claude-sonnet-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+  euler:
+    role: "associate"
+    adapter:
+      config:
+        model: "opencode/gpt-5-nano"
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        intervalSec: 1200
   fermi:
     role: "ceo"
+    icon: "brain"
     adapter:
-      type: "claude_local"
       config:
         dangerouslySkipPermissions: true
         model: "claude-sonnet-4-6"
+      type: "claude_local"
     runtime:
       heartbeat:
         intervalSec: 300
     permissions:
       canCreateAgents: true
-
-  # ─── Cross-arm (direct to Fermi) ────────────────────────────────
-  euler:
+  feynman:
     role: "associate"
-    reportsTo: "fermi"
     adapter:
-      type: "opencode_local"
-      config:
-        model: "opencode/gpt-5-nano"
-    runtime:
-      heartbeat:
-        intervalSec: 1200
-    permissions:
-      canCreateAgents: false
-  popper:
-    role: "associate"
-    reportsTo: "fermi"
-    adapter:
-      type: "opencode_local"
-      config:
-        model: "opencode/nemotron-3-super-free"
-    runtime:
-      heartbeat:
-        intervalSec: 1200
-    permissions:
-      canCreateAgents: false
-
-  # ─── Directors ──────────────────────────────────────────────────
-  kepler:
-    role: "director"
-    reportsTo: "fermi"
-    adapter:
-      type: "claude_local"
       config:
         dangerouslySkipPermissions: true
         model: "claude-sonnet-4-6"
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+  hubble:
+    role: "associate"
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.5"
+        search: true
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+  kepler:
+    role: "director"
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.5"
+        search: true
+      type: "codex_local"
     runtime:
       heartbeat:
         intervalSec: 600
@@ -56,169 +98,76 @@ agents:
       canCreateAgents: true
   maxwell:
     role: "director"
-    reportsTo: "fermi"
     adapter:
-      type: "claude_local"
       config:
-        dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.5"
+        search: true
+      type: "codex_local"
     runtime:
       heartbeat:
         intervalSec: 600
     permissions:
       canCreateAgents: true
-  planck:
-    role: "director"
-    reportsTo: "fermi"
-    adapter:
-      type: "claude_local"
-      config:
-        dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
-    runtime:
-      heartbeat:
-        intervalSec: 600
-    permissions:
-      canCreateAgents: true
-
-  # ─── Personal Brand associates (Kepler's team) ──────────────────
-  tycho:
-    role: "associate"
-    reportsTo: "kepler"
-    adapter:
-      type: "codex_local"
-      config:
-        dangerouslyBypassApprovalsAndSandbox: true
-        model: "gpt-5.5"
-    runtime:
-      heartbeat:
-        intervalSec: 900
-    permissions:
-      canCreateAgents: false
-  copernicus:
-    role: "associate"
-    reportsTo: "kepler"
-    adapter:
-      type: "opencode_local"
-      config:
-        model: "opencode/minimax-m2.5-free"
-    runtime:
-      heartbeat:
-        intervalSec: 900
-    permissions:
-      canCreateAgents: false
-  hubble:
-    role: "associate"
-    reportsTo: "kepler"
-    adapter:
-      type: "opencode_local"
-      config:
-        model: "opencode/minimax-m2.5-free"
-    runtime:
-      heartbeat:
-        intervalSec: 900
-    permissions:
-      canCreateAgents: false
-
-  # ─── Kōzu Consulting associates (Maxwell's team) ────────────────
-  euclid:
-    role: "associate"
-    reportsTo: "maxwell"
-    adapter:
-      type: "codex_local"
-      config:
-        dangerouslyBypassApprovalsAndSandbox: true
-        model: "gpt-5.5"
-    runtime:
-      heartbeat:
-        intervalSec: 900
-    permissions:
-      canCreateAgents: false
-  curie:
-    role: "associate"
-    reportsTo: "maxwell"
-    adapter:
-      type: "claude_local"
-      config:
-        dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
-    runtime:
-      heartbeat:
-        intervalSec: 900
-    permissions:
-      canCreateAgents: false
-  feynman:
-    role: "associate"
-    reportsTo: "maxwell"
-    adapter:
-      type: "claude_local"
-      config:
-        dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
-    runtime:
-      heartbeat:
-        intervalSec: 900
-    permissions:
-      canCreateAgents: false
-
-  # ─── Kōzu AI associates (Planck's team) ─────────────────────────
   minkowski:
     role: "associate"
-    reportsTo: "planck"
     adapter:
-      type: "codex_local"
       config:
-        dangerouslyBypassApprovalsAndSandbox: true
-        model: "gpt-5.5"
+        chrome: true
+        model: "claude-sonnet-4-6"
+      type: "claude_local"
     runtime:
       heartbeat:
         intervalSec: 900
+  planck:
+    role: "director"
+    adapter:
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        dangerouslySkipPermissions: true
+        model: "gpt-5.5"
+        search: true
+      type: "codex_local"
+    runtime:
+      heartbeat:
+        intervalSec: 600
     permissions:
-      canCreateAgents: false
-  bohr:
+      canCreateAgents: true
+  popper:
     role: "associate"
-    reportsTo: "planck"
     adapter:
-      type: "codex_local"
       config:
-        dangerouslyBypassApprovalsAndSandbox: true
-        model: "gpt-5.5"
+        model: "opencode/gpt-5-nano"
+        variant: "medium"
+      type: "opencode_local"
     runtime:
       heartbeat:
-        intervalSec: 900
-    permissions:
-      canCreateAgents: false
+        intervalSec: 1200
   sagan:
     role: "associate"
-    reportsTo: "planck"
     adapter:
-      type: "claude_local"
       config:
-        dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
+        model: "opencode/minimax-m2.5-free"
+      type: "opencode_local"
     runtime:
       heartbeat:
         intervalSec: 900
-    permissions:
-      canCreateAgents: false
-
+  tycho:
+    role: "associate"
+    adapter:
+      config:
+        chrome: true
+        model: "claude-sonnet-4-6"
+      type: "claude_local"
+    runtime:
+      heartbeat:
+        intervalSec: 900
 company:
   logoPath: "images/company-logo.jpg"
-
 projects:
-  michaelwong-life-website:
-    color: "#a855f7"
-    status: "in_progress"
-    targetDate: "2026-05-15"
-    workspaces:
-      michaelwong-life:
-        name: "michaelwong.life"
-        isPrimary: true
-        repoUrl: "https://github.com/thekozugroup/michaelwong.life"
-        sourceType: "git_repo"
-        visibility: "default"
   k-zu-ai-website:
     color: "#eab308"
+    leadAgentSlug: "planck"
     status: "in_progress"
     targetDate: "2026-04-30"
     workspaces:
@@ -230,6 +179,7 @@ projects:
         visibility: "default"
   k-zu-consulting-website:
     color: "#14b8a6"
+    leadAgentSlug: "maxwell"
     status: "in_progress"
     targetDate: "2026-05-08"
     workspaces:
@@ -239,13 +189,23 @@ projects:
         repoUrl: "https://github.com/thekozugroup/consulting.kozugroup.com"
         sourceType: "git_repo"
         visibility: "default"
+  michaelwong-life-website:
+    color: "#a855f7"
+    leadAgentSlug: "kepler"
+    status: "in_progress"
+    targetDate: "2026-05-15"
+    workspaces:
+      michaelwong-life:
+        name: "michaelwong.life"
+        isPrimary: true
+        repoUrl: "https://github.com/thekozugroup/michaelwong.life"
+        sourceType: "git_repo"
+        visibility: "default"
   onboarding:
     color: "#6366f1"
     status: "in_progress"
-
 sidebar:
   agents:
-    - "fermi"
     - "euler"
     - "popper"
     - "kepler"
@@ -260,14 +220,9 @@ sidebar:
     - "minkowski"
     - "bohr"
     - "sagan"
+    - "fermi"
   projects:
     - "onboarding"
     - "michaelwong-life-website"
-    - "k-zu-consulting-website"
     - "k-zu-ai-website"
-
-tasks:
-  the-1:
-    identifier: "THE-1"
-    priority: "medium"
-    status: "done"
+    - "k-zu-consulting-website"

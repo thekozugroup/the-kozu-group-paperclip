@@ -10,69 +10,44 @@
 |---------|-------|
 | Agents | 15 |
 | Projects | 4 |
-| Skills | 4 |
-| Tasks | 1 |
+| Skills | 5 |
 
 ### Agents
 
-| Badge | Name | Role | Reports To | Adapter |
-|-------|------|------|------------|---------|
-| [E1] | Fermi | Executive Assistant (CEO-layer) | Michael Wong (human) | Claude |
-| [E1.A1] | Euler | Operations (cross-arm) | Fermi | Opencode |
-| [E1.A2] | Popper | QA/QC Judge (cross-arm, advisory) | Fermi | Opencode |
-| [E1.D1] | Kepler | Director, Personal Brand | Fermi | Claude |
-| [E1.D1.A1] | Tycho | Site Lead (michaelwong.life) | Kepler | Codex |
-| [E1.D1.A2] | Copernicus | Associate, Content & Editorial | Kepler | Opencode |
-| [E1.D1.A3] | Hubble | Associate, Design & Visual | Kepler | Opencode |
-| [E1.D2] | Maxwell | Director, Kōzu Consulting | Fermi | Claude |
-| [E1.D2.A1] | Euclid | Site Lead (consulting.kozugroup.com) | Maxwell | Codex |
-| [E1.D2.A2] | Curie | Associate, Research | Maxwell | Claude |
-| [E1.D2.A3] | Feynman | Associate, Proposals & Communications | Maxwell | Claude |
-| [E1.D3] | Planck | Director, Kōzu AI | Fermi | Claude |
-| [E1.D3.A1] | Minkowski | Site Lead (ai.kozugroup.com) | Planck | Codex |
-| [E1.D3.A2] | Bohr | Associate, Research & Experimentation | Planck | Codex |
-| [E1.D3.A3] | Sagan | Associate, Publications & Communications | Planck | Claude |
-
-Badge format: `[E#.D#.A#]` — E = Executive, D = Director, A = Associate, # = employee number at rank. A# directly under E (skipping D) denotes cross-arm operations.
-
-### Model / Adapter Split
-
-| Adapter | Quota | Agents |
-|---|---|---|
-| **Claude Code** (Sonnet 4.6 / Max 20x) | Abundant | Fermi, Kepler, Maxwell, Planck, Curie, Feynman, Sagan |
-| **Codex** (Pro) | Limited — reserved for code | Tycho, Euclid, Minkowski, Bohr |
-| **Opencode** (free models) | Unlimited — high volume | Copernicus, Hubble, Euler |
-| **Opencode (nemotron-3-super-free)** | Free small-model critic | Popper |
+| Agent | Role | Reports To |
+|-------|------|------------|
+| Bohr | associate | planck |
+| Copernicus | associate | kepler |
+| Curie | associate | maxwell |
+| Euclid | associate | maxwell |
+| Euler | associate | fermi |
+| Fermi | CEO | — |
+| Feynman | associate | maxwell |
+| Hubble | associate | kepler |
+| Kepler | director | fermi |
+| Maxwell | director | fermi |
+| Minkowski | associate | planck |
+| Planck | director | fermi |
+| Popper | associate | fermi |
+| Sagan | associate | planck |
+| Tycho | associate | kepler |
 
 ### Projects
 
-- **michaelwong.life Website** — CEO personal brand site
-- **Kōzu AI Website** — Public site for the AI research arm
-- **Kōzu Consulting Website** — Public site for the consultancy
-- **Onboarding** — Agent spin-up and role calibration
+- **Kōzu AI Website** — Public site for Kōzu AI — model docs, research updates, frontier positioning
+- **Kōzu Consulting Website** — Public site for Kōzu Consulting — fast-sprint brand strategy for the AI era
+- **michaelwong.life Website** — CEO personal brand site — portfolio, writing, thought leadership
+- **Onboarding** — New agent spin-up, role calibration, and first-sprint coordination
 
 ### Skills
 
 | Skill | Description | Source |
 |-------|-------------|--------|
-| paperclip-create-agent | Agent hiring skill | [github](https://github.com/paperclipai/paperclip/tree/master/skills/paperclip-create-agent) |
-| paperclip-create-plugin | Plugin/extension creation | [github](https://github.com/paperclipai/paperclip/tree/master/skills/paperclip-create-plugin) |
-| paperclip | Core Paperclip coordination | [github](https://github.com/paperclipai/paperclip/tree/master/skills/paperclip) |
-| para-memory-files | PARA memory system | [github](https://github.com/paperclipai/paperclip/tree/master/skills/para-memory-files) |
-
-See [SKILLS_PLAN.md](./SKILLS_PLAN.md) for per-agent skill recommendations (Impeccable stack for site associates, research/writing skills for knowledge work, ops skills for Euler).
-
-### Subsidiaries
-
-The Kōzu Group is an umbrella holding company. Each director manages one subsidiary:
-
-| Subsidiary | Director | Team Size | Focus | Naming Schema |
-|---|---|---|---|---|
-| **Personal Brand** (michaelwong.life) | Kepler | 3 associates | CEO's public-facing identity | — |
-| **Kōzu Consulting** | Maxwell | 3 associates | Fast-sprint brand strategy for the AI era | — |
-| **Kōzu AI** | Planck | 3 associates | LLM R&D, fine-tuning, datasets | Models: Planetary bodies / Scientists / Physics / Quantum Mechanics |
-| **Kōzu Digital** *(future)* | *unfilled* | — | Full-stack engineering of SaaS products, platforms, and internal tools | Digital Products: Plant Genuses / Taxonomy (*Salix*, *Quercus*, *Acer*, *Pinus*) |
-| **Kōzu Studio** *(future)* | *unfilled* | — | Visual identity, multimedia content production, creative direction | — |
+| impeccable | Impeccable design system authoring and implementation — distinctive production-grade UI that avoids generic AI aesthetics. Primary design stack for Tycho, Euclid, Minkowski, and Hubble. | [url](https://impeccable.style/) |
+| paperclip-create-agent | > | [github](https://github.com/paperclipai/paperclip/tree/master/skills/paperclip-create-agent) |
+| paperclip-create-plugin | > | [github](https://github.com/paperclipai/paperclip/tree/master/skills/paperclip-create-plugin) |
+| paperclip | > | [github](https://github.com/paperclipai/paperclip/tree/master/skills/paperclip) |
+| para-memory-files | > | [github](https://github.com/paperclipai/paperclip/tree/master/skills/para-memory-files) |
 
 ## Getting Started
 
@@ -80,9 +55,7 @@ The Kōzu Group is an umbrella holding company. Each director manages one subsid
 pnpm paperclipai company import this-github-url-or-folder
 ```
 
-Import URL: `https://github.com/thekozugroup/the-kozu-group-paperclip/tree/main`
-
 See [Paperclip](https://paperclip.ing) for more information.
 
 ---
-Exported from [Paperclip](https://paperclip.ing) on 2026-04-23
+Exported from [Paperclip](https://paperclip.ing) on 2026-04-24
