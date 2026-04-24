@@ -1,5 +1,6 @@
 schema: "paperclip/v1"
 agents:
+  # ─── Executive layer ────────────────────────────────────────────
   fermi:
     role: "ceo"
     adapter:
@@ -12,6 +13,8 @@ agents:
         intervalSec: 300
     permissions:
       canCreateAgents: true
+
+  # ─── Directors ──────────────────────────────────────────────────
   kepler:
     role: "director"
     reportsTo: "fermi"
@@ -51,20 +54,61 @@ agents:
         intervalSec: 600
     permissions:
       canCreateAgents: true
+
+  # ─── Personal Brand associates (Kepler's team) ──────────────────
   halley:
     role: "associate"
     reportsTo: "kepler"
     adapter:
-      type: "claude_local"
+      type: "codex_local"
       config:
-        dangerouslySkipPermissions: true
-        model: "claude-sonnet-4-6"
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.4-mini"
     runtime:
       heartbeat:
         intervalSec: 900
     permissions:
       canCreateAgents: false
+  copernicus:
+    role: "associate"
+    reportsTo: "kepler"
+    adapter:
+      type: "opencode_local"
+      config:
+        model: "opencode/minimax-m2.5-free"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+  hubble:
+    role: "associate"
+    reportsTo: "kepler"
+    adapter:
+      type: "opencode_local"
+      config:
+        model: "opencode/minimax-m2.5-free"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+
+  # ─── Kōzu Consulting associates (Maxwell's team) ────────────────
   faraday:
+    role: "associate"
+    reportsTo: "maxwell"
+    adapter:
+      type: "codex_local"
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.4-mini"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+  curie:
     role: "associate"
     reportsTo: "maxwell"
     adapter:
@@ -77,7 +121,48 @@ agents:
         intervalSec: 900
     permissions:
       canCreateAgents: false
+  feynman:
+    role: "associate"
+    reportsTo: "maxwell"
+    adapter:
+      type: "claude_local"
+      config:
+        dangerouslySkipPermissions: true
+        model: "claude-sonnet-4-6"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+
+  # ─── Kōzu AI associates (Planck's team) ─────────────────────────
   heisenberg:
+    role: "associate"
+    reportsTo: "planck"
+    adapter:
+      type: "codex_local"
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.4-mini"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+  bohr:
+    role: "associate"
+    reportsTo: "planck"
+    adapter:
+      type: "codex_local"
+      config:
+        dangerouslyBypassApprovalsAndSandbox: true
+        model: "gpt-5.4-mini"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+    permissions:
+      canCreateAgents: false
+  sagan:
     role: "associate"
     reportsTo: "planck"
     adapter:
@@ -90,8 +175,24 @@ agents:
         intervalSec: 900
     permissions:
       canCreateAgents: false
+
+  # ─── Cross-arm Operations (direct to Fermi) ─────────────────────
+  euler:
+    role: "associate"
+    reportsTo: "fermi"
+    adapter:
+      type: "opencode_local"
+      config:
+        model: "opencode/gpt-5-nano"
+    runtime:
+      heartbeat:
+        intervalSec: 1200
+    permissions:
+      canCreateAgents: false
+
 company:
   logoPath: "images/company-logo.jpg"
+
 projects:
   michaelwong-life-website:
     color: "#a855f7"
@@ -129,20 +230,29 @@ projects:
   onboarding:
     color: "#6366f1"
     status: "in_progress"
+
 sidebar:
   agents:
     - "fermi"
+    - "euler"
     - "kepler"
-    - "maxwell"
-    - "planck"
+    - "copernicus"
+    - "hubble"
     - "halley"
+    - "maxwell"
+    - "curie"
+    - "feynman"
     - "faraday"
+    - "planck"
+    - "bohr"
+    - "sagan"
     - "heisenberg"
   projects:
     - "onboarding"
     - "michaelwong-life-website"
     - "k-zu-consulting-website"
     - "k-zu-ai-website"
+
 tasks:
   the-1:
     identifier: "THE-1"

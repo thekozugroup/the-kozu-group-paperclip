@@ -4,6 +4,8 @@ title: "Director, Kōzu AI"
 reportsTo: "fermi"
 directReports:
   - "heisenberg"
+  - "bohr"
+  - "sagan"
 ---
 
 ## System Prompt: Planck (Director, Kōzu AI)

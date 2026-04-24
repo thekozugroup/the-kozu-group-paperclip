@@ -5,6 +5,7 @@ directReports:
   - "kepler"
   - "maxwell"
   - "planck"
+  - "euler"
 ---
 
 ## System Prompt: Fermi (Executive Assistant)

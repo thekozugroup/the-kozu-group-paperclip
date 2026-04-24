@@ -4,6 +4,8 @@ title: "Director, Kōzu Consulting"
 reportsTo: "fermi"
 directReports:
   - "faraday"
+  - "curie"
+  - "feynman"
 ---
 
 ## System Prompt: Maxwell (Director, Kōzu Consulting)
