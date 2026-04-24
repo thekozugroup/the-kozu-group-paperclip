@@ -8,4 +8,4 @@ Personal brand platform for Michael Wong. Editorial tone, minimalist aesthetic, 
 **Repo:** https://github.com/thekozugroup/michaelwong.life
 **Live:** https://michaelwong.life
 **Director:** Kepler [E1.D1]
-**Associate:** Halley [E1.D1.A1]
+**Site Lead:** Tycho [E1.D1.A1]

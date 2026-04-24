@@ -8,7 +8,7 @@
 
 | Content | Count |
 |---------|-------|
-| Agents | 14 |
+| Agents | 15 |
 | Projects | 4 |
 | Skills | 4 |
 | Tasks | 1 |
@@ -19,16 +19,17 @@
 |-------|------|------|------------|---------|
 | [E1] | Fermi | Executive Assistant (CEO-layer) | Michael Wong (human) | Claude |
 | [E1.A1] | Euler | Operations (cross-arm) | Fermi | Opencode |
+| [E1.A2] | Popper | QA/QC Judge (cross-arm, advisory) | Fermi | Opencode |
 | [E1.D1] | Kepler | Director, Personal Brand | Fermi | Claude |
-| [E1.D1.A1] | Halley | Associate, Site Ops (michaelwong.life) | Kepler | Codex |
+| [E1.D1.A1] | Tycho | Site Lead (michaelwong.life) | Kepler | Codex |
 | [E1.D1.A2] | Copernicus | Associate, Content & Editorial | Kepler | Opencode |
 | [E1.D1.A3] | Hubble | Associate, Design & Visual | Kepler | Opencode |
 | [E1.D2] | Maxwell | Director, Kōzu Consulting | Fermi | Claude |
-| [E1.D2.A1] | Faraday | Associate, Site Ops (consulting.kozugroup.com) | Maxwell | Codex |
+| [E1.D2.A1] | Euclid | Site Lead (consulting.kozugroup.com) | Maxwell | Codex |
 | [E1.D2.A2] | Curie | Associate, Research | Maxwell | Claude |
 | [E1.D2.A3] | Feynman | Associate, Proposals & Communications | Maxwell | Claude |
 | [E1.D3] | Planck | Director, Kōzu AI | Fermi | Claude |
-| [E1.D3.A1] | Heisenberg | Associate, Site Ops (ai.kozugroup.com) | Planck | Codex |
+| [E1.D3.A1] | Minkowski | Site Lead (ai.kozugroup.com) | Planck | Codex |
 | [E1.D3.A2] | Bohr | Associate, Research & Experimentation | Planck | Codex |
 | [E1.D3.A3] | Sagan | Associate, Publications & Communications | Planck | Claude |
 
@@ -39,8 +40,9 @@ Badge format: `[E#.D#.A#]` — E = Executive, D = Director, A = Associate, # = e
 | Adapter | Quota | Agents |
 |---|---|---|
 | **Claude Code** (Sonnet 4.6 / Max 20x) | Abundant | Fermi, Kepler, Maxwell, Planck, Curie, Feynman, Sagan |
-| **Codex** (Pro) | Limited — reserved for code | Halley, Faraday, Heisenberg, Bohr |
+| **Codex** (Pro) | Limited — reserved for code | Tycho, Euclid, Minkowski, Bohr |
 | **Opencode** (free models) | Unlimited — high volume | Copernicus, Hubble, Euler |
+| **Opencode (nemotron-3-super-free)** | Free small-model critic | Popper |
 
 ### Projects
 

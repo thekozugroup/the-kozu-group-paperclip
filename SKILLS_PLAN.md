@@ -1,6 +1,6 @@
 # Kōzu Group — Skills Installation Plan
 
-Purpose: decide which Paperclip/Claude skills each of the 14 agents should have installed. Practical, per-agent, actionable. Skills listed here are for Claude Code agents primarily; Codex and Opencode agents should have the core Paperclip skills + the claude-compatible skills that survive adapter translation.
+Purpose: decide which Paperclip/Claude skills each of the 15 agents should have installed. Practical, per-agent, actionable. Skills listed here are for Claude Code agents primarily; Codex and Opencode agents should have the core Paperclip skills + the claude-compatible skills that survive adapter translation.
 
 ---
 
@@ -30,6 +30,7 @@ Optional global: `caveman:caveman-commit` for tighter commit messages.
 |---|---|---|
 | **[E1] Fermi** | Executive Assistant | `superpowers:brainstorming`, `superpowers:dispatching-parallel-agents`, `superpowers:writing-plans`, `paperclip-create-agent`, `anthropic-skills:docx/pptx/xlsx/pdf`, `anthropic-skills:schedule`, `schedule`, `loop` |
 | **[E1.A1] Euler** | Operations (cross-arm) | `anthropic-skills:xlsx` (finance sheets), `anthropic-skills:docx` (legal templates), `anthropic-skills:schedule`, `anthropic-skills:pdf` (invoice/contract processing), `loop` for recurring ops checks |
+| **[E1.A2] Popper** | QA/QC Judge (cross-arm, advisory) | Runs on `opencode/nemotron-3-super-free` — small-model critic. Core skills only: `paperclipai/paperclip`, `para-memory-files`, `superpowers:verification-before-completion`. Consumes outputs from any agent; returns pass/fail + reason. Reports to Fermi. |
 
 ### Directors
 
@@ -43,7 +44,7 @@ Optional global: `caveman:caveman-commit` for tighter commit messages.
 
 | Agent | Role | Skills beyond the core |
 |---|---|---|
-| **[E1.D1.A1] Halley** | Site Ops (michaelwong.life) | `frontend-design:frontend-design` (Impeccable stack), `anthropic-skills:design-md`, `superpowers:test-driven-development`, `superpowers:systematic-debugging`, `superpowers:using-git-worktrees`, `superpowers:requesting-code-review` |
+| **[E1.D1.A1] Tycho** | Site Lead (michaelwong.life) | `frontend-design:frontend-design` (Impeccable stack), `anthropic-skills:design-md`, `superpowers:test-driven-development`, `superpowers:systematic-debugging`, `superpowers:using-git-worktrees`, `superpowers:requesting-code-review` |
 | **[E1.D1.A2] Copernicus** | Content & Editorial | `anthropic-skills:docx` (long-form drafts), `anthropic-skills:pdf` (reading source material), `superpowers:writing-plans` (editorial planning) — note: Opencode agent, skip Claude-only skills |
 | **[E1.D1.A3] Hubble** | Design & Visual | `frontend-design:frontend-design`, `anthropic-skills:design-md` — note: Opencode agent; image-gen tools better handled at platform level |
 
@@ -51,7 +52,7 @@ Optional global: `caveman:caveman-commit` for tighter commit messages.
 
 | Agent | Role | Skills beyond the core |
 |---|---|---|
-| **[E1.D2.A1] Faraday** | Site Ops (consulting.kozugroup.com) | `frontend-design:frontend-design`, `anthropic-skills:design-md`, `superpowers:test-driven-development`, `superpowers:systematic-debugging`, `superpowers:using-git-worktrees` |
+| **[E1.D2.A1] Euclid** | Site Lead (consulting.kozugroup.com) | `frontend-design:frontend-design`, `anthropic-skills:design-md`, `superpowers:test-driven-development`, `superpowers:systematic-debugging`, `superpowers:using-git-worktrees` |
 | **[E1.D2.A2] Curie** | Research | `anthropic-skills:pdf` (reading industry reports), `anthropic-skills:docx` (research briefs), `anthropic-skills:xlsx` (competitor comparison matrices), `recursive-decomposition:recursive-decomposition`, `superpowers:brainstorming` |
 | **[E1.D2.A3] Feynman** | Proposals & Communications | `anthropic-skills:docx` (SOWs), `anthropic-skills:pptx` (proposal decks), `anthropic-skills:pdf` (client handoffs), `superpowers:writing-plans`, `anthropic-skills:design-md` (proposal style guide) |
 
@@ -59,7 +60,7 @@ Optional global: `caveman:caveman-commit` for tighter commit messages.
 
 | Agent | Role | Skills beyond the core |
 |---|---|---|
-| **[E1.D3.A1] Heisenberg** | Site Ops (ai.kozugroup.com) | `frontend-design:frontend-design`, `anthropic-skills:design-md`, `superpowers:test-driven-development`, `superpowers:systematic-debugging`, `anthropic-skills:pdf` (model docs) |
+| **[E1.D3.A1] Minkowski** | Site Lead (ai.kozugroup.com) | `frontend-design:frontend-design`, `anthropic-skills:design-md`, `superpowers:test-driven-development`, `superpowers:systematic-debugging`, `anthropic-skills:pdf` (model docs) |
 | **[E1.D3.A2] Bohr** | Research & Experimentation | `claude-api` (model integrations), `recursive-decomposition:recursive-decomposition` (experiment design), `superpowers:test-driven-development`, `superpowers:systematic-debugging`, `anthropic-skills:xlsx` (results tables) |
 | **[E1.D3.A3] Sagan** | Publications & Communications | `anthropic-skills:pdf` (paper drafting), `anthropic-skills:docx` (announcements), `anthropic-skills:design-md` (publication style), `superpowers:writing-plans`, `recursive-decomposition:recursive-decomposition` |
 
@@ -71,23 +72,25 @@ Optional global: `caveman:caveman-commit` for tighter commit messages.
 Fermi, Kepler, Maxwell, Planck, Curie, Feynman, Sagan — **full skill support**. Install everything in their row.
 
 ### Codex Pro agents (4)
-Halley, Faraday, Heisenberg, Bohr — Codex has its own skill surface. Install:
+Tycho, Euclid, Minkowski, Bohr — Codex has its own skill surface. Install:
 - Paperclip core skills (cross-adapter)
 - PARA memory
 - Codex-native equivalents of `superpowers:test-driven-development` / `systematic-debugging` where available
 - Skip Claude-only skills (frontend-design/Impeccable may need direct Claude delegation for design review)
 
-### Opencode agents (3)
-Copernicus, Hubble, Euler — Opencode free tier has minimal skill surface. Install:
+### Opencode agents (4)
+Copernicus, Hubble, Euler, Popper — Opencode free tier has minimal skill surface. Install:
 - Paperclip core skills
 - PARA memory (if supported)
 - Rely on strong system prompts (AGENTS.md + SOUL.md) rather than skills for steering
+
+Popper specifically runs on `opencode/nemotron-3-super-free` as a cross-arm QA/QC judge — small-model critic that evaluates outputs and flags quality issues to Fermi.
 
 ---
 
 ## 4. Design / UI skills — "Impeccable" stack
 
-For anyone building or reviewing UI (Kepler, Maxwell, Planck, Halley, Faraday, Heisenberg, Hubble):
+For anyone building or reviewing UI (Kepler, Maxwell, Planck, Tycho, Euclid, Minkowski, Hubble):
 
 - **`frontend-design:frontend-design`** — explicitly avoids generic AI aesthetics, enforces distinctive production-grade UI
 - **`anthropic-skills:design-md`** — codify brand tokens, typography, spacing, and voice guidelines as DESIGN.md files the associates consume

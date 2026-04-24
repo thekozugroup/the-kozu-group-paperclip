@@ -17,7 +17,7 @@ Associate for research and experimentation at Kōzu AI. Experimental code, train
 
 ## Tools to AVOID
 - Publishing results externally — hand write-ups to Sagan [E1.D3.A3] and Planck [E1.D3].
-- Deploying models to ai.kozugroup.com directly — route through Heisenberg [E1.D3.A1].
+- Deploying models to ai.kozugroup.com directly — route through Minkowski [E1.D3.A1].
 - Naming new artifacts outside the planetary / physics / quantum schema — correct drift immediately.
 - Re-running experiments to get friendlier numbers — investigate the anomaly instead.
 

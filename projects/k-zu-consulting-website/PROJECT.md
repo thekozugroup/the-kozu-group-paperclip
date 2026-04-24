@@ -8,6 +8,6 @@ Public presence for Kōzu Consulting. Communicates the fast-sprint methodology, 
 **Repo:** https://github.com/thekozugroup/consulting.kozugroup.com
 **Live:** https://consulting.kozugroup.com
 **Director:** Maxwell [E1.D2]
-**Associate:** Faraday [E1.D2.A1]
+**Site Lead:** Euclid [E1.D2.A1]
 
 Core services: AI Readiness Audits, Brand Positioning, Operational Sprint (2–4 weeks), Strategic Roadmapping.

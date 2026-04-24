@@ -14,6 +14,32 @@ agents:
     permissions:
       canCreateAgents: true
 
+  # ─── Cross-arm (direct to Fermi) ────────────────────────────────
+  euler:
+    role: "associate"
+    reportsTo: "fermi"
+    adapter:
+      type: "opencode_local"
+      config:
+        model: "opencode/gpt-5-nano"
+    runtime:
+      heartbeat:
+        intervalSec: 1200
+    permissions:
+      canCreateAgents: false
+  popper:
+    role: "associate"
+    reportsTo: "fermi"
+    adapter:
+      type: "opencode_local"
+      config:
+        model: "opencode/nemotron-3-super-free"
+    runtime:
+      heartbeat:
+        intervalSec: 1200
+    permissions:
+      canCreateAgents: false
+
   # ─── Directors ──────────────────────────────────────────────────
   kepler:
     role: "director"
@@ -56,14 +82,14 @@ agents:
       canCreateAgents: true
 
   # ─── Personal Brand associates (Kepler's team) ──────────────────
-  halley:
+  tycho:
     role: "associate"
     reportsTo: "kepler"
     adapter:
       type: "codex_local"
       config:
         dangerouslyBypassApprovalsAndSandbox: true
-        model: "gpt-5.4-mini"
+        model: "gpt-5.5"
     runtime:
       heartbeat:
         intervalSec: 900
@@ -95,14 +121,14 @@ agents:
       canCreateAgents: false
 
   # ─── Kōzu Consulting associates (Maxwell's team) ────────────────
-  faraday:
+  euclid:
     role: "associate"
     reportsTo: "maxwell"
     adapter:
       type: "codex_local"
       config:
         dangerouslyBypassApprovalsAndSandbox: true
-        model: "gpt-5.4-mini"
+        model: "gpt-5.5"
     runtime:
       heartbeat:
         intervalSec: 900
@@ -136,14 +162,14 @@ agents:
       canCreateAgents: false
 
   # ─── Kōzu AI associates (Planck's team) ─────────────────────────
-  heisenberg:
+  minkowski:
     role: "associate"
     reportsTo: "planck"
     adapter:
       type: "codex_local"
       config:
         dangerouslyBypassApprovalsAndSandbox: true
-        model: "gpt-5.4-mini"
+        model: "gpt-5.5"
     runtime:
       heartbeat:
         intervalSec: 900
@@ -156,7 +182,7 @@ agents:
       type: "codex_local"
       config:
         dangerouslyBypassApprovalsAndSandbox: true
-        model: "gpt-5.4-mini"
+        model: "gpt-5.5"
     runtime:
       heartbeat:
         intervalSec: 900
@@ -173,20 +199,6 @@ agents:
     runtime:
       heartbeat:
         intervalSec: 900
-    permissions:
-      canCreateAgents: false
-
-  # ─── Cross-arm Operations (direct to Fermi) ─────────────────────
-  euler:
-    role: "associate"
-    reportsTo: "fermi"
-    adapter:
-      type: "opencode_local"
-      config:
-        model: "opencode/gpt-5-nano"
-    runtime:
-      heartbeat:
-        intervalSec: 1200
     permissions:
       canCreateAgents: false
 
@@ -235,18 +247,19 @@ sidebar:
   agents:
     - "fermi"
     - "euler"
+    - "popper"
     - "kepler"
+    - "tycho"
     - "copernicus"
     - "hubble"
-    - "halley"
     - "maxwell"
+    - "euclid"
     - "curie"
     - "feynman"
-    - "faraday"
     - "planck"
+    - "minkowski"
     - "bohr"
     - "sagan"
-    - "heisenberg"
   projects:
     - "onboarding"
     - "michaelwong-life-website"
